@@ -1,6 +1,6 @@
 package com.rizwan.core.SpringCoreConcepts;
 
-import com.rizwan.core.SpringCoreConcepts.looseCouple.Person;
+import com.rizwan.core.SpringCoreConcepts.scope.Pepsi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -31,7 +31,20 @@ public class SpringCoreConceptsApplication {
     ApplicationContext context =
         SpringApplication.run(SpringCoreConceptsApplication.class,
             args);
-    Person personBean = context.getBean(Person.class);
-    personBean.playWithAnimal();
+//    Person personBean = context.getBean(Person.class);
+//    personBean.playWithAnimal();
+    //Bean Scope
+    //first time it will create a new instance of Pepsi
+    Pepsi pepsi = context.getBean(Pepsi.class);
+    System.out.println(pepsi);
+    pepsi.drink();
+    //second time it will return the same instance of Pepsi
+    Pepsi pepsi2 = context.getBean(Pepsi.class);
+    System.out.println(pepsi2);
+    pepsi2.drink();
+    //third time it will return the same instance of Pepsi
+    Pepsi pepsi3 = context.getBean(Pepsi.class);
+    System.out.println(pepsi3);
+    pepsi3.drink();
   }
 }

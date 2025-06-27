@@ -12,6 +12,9 @@ public class Person {
   private Animal animal;
   @Autowired
   private Student student;
+  @Autowired
+  @Qualifier("samosa1")
+  private Samosa samosa;
   // Constructor based Injection
 //  @Autowired
 //  public Person(@Qualifier("dogBean") Animal animal, Student student) {
@@ -43,5 +46,6 @@ public class Person {
   public void playWithAnimal() {
     animal.play();
     student.getDetails();
+    samosa.eat();
   }
 }

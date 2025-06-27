@@ -1,6 +1,7 @@
 package com.rizwan.core.SpringCoreConcepts;
 
 import com.rizwan.core.SpringCoreConcepts.scope.Pepsi;
+import com.rizwan.core.SpringCoreConcepts.scope.Soda;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -35,16 +36,29 @@ public class SpringCoreConceptsApplication {
 //    personBean.playWithAnimal();
     //Bean Scope
     //first time it will create a new instance of Pepsi
+//    Pepsi pepsi = context.getBean(Pepsi.class);
+//    System.out.println(pepsi);
+//    pepsi.drink();
+//    //second time it will return the same instance of Pepsi
+//    Pepsi pepsi2 = context.getBean(Pepsi.class);
+//    System.out.println(pepsi2);
+//    pepsi2.drink();
+//    //third time it will return the same instance of Pepsi
+//    Pepsi pepsi3 = context.getBean(Pepsi.class);
+//    System.out.println(pepsi3);
+//    pepsi3.drink();
+    //Using Pepsi with Soda as prototype scope with ProxyMode as TARGET_CLASS
     Pepsi pepsi = context.getBean(Pepsi.class);
     System.out.println(pepsi);
-    pepsi.drink();
-    //second time it will return the same instance of Pepsi
+    Soda soda = pepsi.getSoda();
+    System.out.println(soda);
+    Pepsi pepsi1 = context.getBean(Pepsi.class);
+    System.out.println(pepsi1);
+    Soda soda1 = pepsi1.getSoda();
+    System.out.println(soda1);
     Pepsi pepsi2 = context.getBean(Pepsi.class);
     System.out.println(pepsi2);
-    pepsi2.drink();
-    //third time it will return the same instance of Pepsi
-    Pepsi pepsi3 = context.getBean(Pepsi.class);
-    System.out.println(pepsi3);
-    pepsi3.drink();
+    Soda soda2 = pepsi2.getSoda();
+    System.out.println(soda2);
   }
 }

@@ -27,6 +27,8 @@ public class SpringCoreConceptsApplication {
         present and its sub-packages. If we want to scan other packages, we can
         use @ComponentScan annotation with basePackages attribute.
      */
+    //ApplicationContext is the interface that provides configuration for the
+    // entire application. It is the central interface to the Spring IoC container.
     ApplicationContext context =
         SpringApplication.run(SpringCoreConceptsApplication.class,
             args);
